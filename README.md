@@ -364,3 +364,69 @@ Fonts loaded from Google Fonts: **Roboto** (300, 400, 500) + **Material Icons**.
 | **Strict TypeScript**          | `strict: true`, `noImplicitReturns`, `strictTemplates` — maximum type safety |
 | **Component Input Binding**    | `withComponentInputBinding()` — route params bound directly via `input.required()` |
 | **SCSS component styles**      | Configured via schematics: `@schematics/angular:component.style: scss`  |
+
+---
+
+## Next To-Do
+
+### Tests (Priority: High)
+
+Proiectul contine 20 fisiere `*.spec.ts`, dar **toate sunt schelet** — doar un singur test `should create` / `should be created` per fisier. Nu exista teste functionale reale.
+
+**Fara spec files deloc:**
+- 3 Facades: `LinkGeneratorFacade`, `MyLinksFacade`, `AnalyticsFacade`
+- Mock API Interceptor (`mock-api.interceptor.ts`)
+- Validators (`urlValidator`, `normalizeUrl`)
+- `AnalyticsService`
+- Routing modules, feature modules, app config
+
+**Ce trebuie testat (in ordine de prioritate):**
+
+1. **Unit tests — Validators (`core/util/validators.ts`)**
+   - `urlValidator`: URL-uri valide/invalide, cu/fara protocol, hostname fara punct, input gol
+   - `normalizeUrl`: adaugare `https://`, string gol, URL-uri deja cu protocol
+
+2. **Unit tests — Services**
+   - `NotificationService`: success/error/info adauga notificare, auto-dismiss dupa 3.5s, dismiss manual
+   - `ClipboardService`: apel `navigator.clipboard.writeText()`, notificare la success/fail
+   - `LinkGenerator`: POST catre `/api/links`, mapare raspuns
+   - `MyLinksService`: GET catre `/api/links`, mapare raspuns
+   - `AnalyticsService`: GET catre `/api/my-links/:id/analytics`, mapare raspuns
+
+3. **Unit tests — Facades (business logic principal)**
+   - `LinkGeneratorFacade`: loading state, result signal, error handling, reset
+   - `MyLinksFacade`: load, refresh, error state, links signal
+   - `AnalyticsFacade`: load by linkId, error state, data signal
+
+4. **Unit tests — Mock API Interceptor**
+   - POST `/api/links` — creaza link, salveaza in localStorage, returneaza 201
+   - GET `/api/links` — returneaza lista din localStorage
+   - GET `/api/my-links/:id/analytics` — returneaza din fixtures sau genereaza random
+   - Simulare failure (5% rate)
+   - Passthrough pentru rute necunoscute
+
+5. **Component tests**
+   - `UrlForm`: validare formular, submit cu URL valid, disable buton cand invalid/loading
+   - `ResultCard`: afisare short URL, copy-to-clipboard, formular email
+   - `LinksTable`: populare `MatTableDataSource`, paginare, actiune copy
+   - `LinkAnalytics`: incarcare analytics pe baza route param `:id`
+   - `EmptyState`, `ErrorMsg`: input/output binding
+   - Chart components: verificare ca `chartData` computed se actualizeaza corect
+
+6. **Integration tests**
+   - Flow complet: generare link -> vizualizare in My Links -> deschidere analytics
+   - Routing: lazy loading corect, wildcard 404
+
+### Altele
+
+- [ ] Inlocuire mock API interceptor cu backend real (REST/GraphQL)
+- [ ] Autentificare utilizator (link-urile sunt globale acum, fara owner)
+- [ ] DELETE endpoint — stergere link din lista
+- [ ] Paginare server-side pentru `/api/links` (acum totul e client-side)
+- [ ] Environment files (`environment.ts` / `environment.prod.ts`) pentru API base URL
+- [ ] Error handling global (HTTP error interceptor separat de mock)
+- [ ] Loading skeleton/shimmer in loc de `mat-progress-bar`
+- [ ] Responsive design audit — tabele pe mobile
+- [ ] Accessibility (a11y) — ARIA labels pe chart-uri, keyboard navigation
+- [ ] CI/CD pipeline — lint, test, build in GitHub Actions
+- [ ] E2E tests (Playwright/Cypress)
