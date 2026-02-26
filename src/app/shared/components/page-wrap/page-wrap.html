@@ -1,0 +1,13 @@
+<div class="w-100 h-100 wrap-container">
+  <app-top-nav></app-top-nav>
+  <main class="main-container">
+    <ng-content></ng-content>
+  </main>
+  <div class="toast-container">
+    @for (n of notifications.notifications(); track n.id) {
+      <div class="toast-item" [class]="n.type" (click)="notifications.dismiss(n.id)">
+        {{ n.message }}
+      </div>
+    }
+  </div>
+</div>

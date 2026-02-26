@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center pt-5">
+      <h1 class="fs-4">⚡ Shorten your links</h1>
+      <p class="fs-6">Create short, memorable links in seconds. Track clicks and share everywhere.</p>
+    </div>
+  </div>
+  <div class="mt-4">
+    <div class="row">
+      <div class="col-12 offset-lg-3 col-lg-6">
+        <app-url-form></app-url-form>
+        @if (facade.error()) {
+          <app-error-msg [error]="facade.error()!" (action)="facade.reset()"></app-error-msg>
+        }
+        <app-result-card></app-result-card>
+      </div>
+    </div>
+  </div>
+</div>

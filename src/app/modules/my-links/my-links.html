@@ -1,0 +1,22 @@
+<div class="container pt-4 pt-lg-5">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="fs-4 m-0">🚀 My Links</h1>
+    <button (click)="goToGenerator()" matButton="filled">+ Create new link</button>
+  </div>
+  <div class="row mt-4">
+    <div class="col-12">
+      @if (facade.isLoading()) {
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      } @else if (facade.error()) {
+        <app-error-msg [error]="facade.error()!" (action)="facade.refresh()"></app-error-msg>
+      } @else if (facade.links().length === 0) {
+        <app-empty-state
+          actionLabel="Create a Link"
+          (action)="goToGenerator()"
+        />
+      } @else {
+        <app-links-table [links]="facade.links()"/>
+      }
+    </div>
+  </div>
+</div>

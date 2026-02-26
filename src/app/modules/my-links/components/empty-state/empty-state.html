@@ -1,0 +1,8 @@
+<div class="empty-state">
+  <div class="icon">🔗</div>
+  <h3>No links yet</h3>
+  <p>Create your first short link to get started.</p>
+  @if (actionLabel()) {
+    <button class="cta-btn" (click)="action.emit()">{{ actionLabel() }}</button>
+  }
+</div>

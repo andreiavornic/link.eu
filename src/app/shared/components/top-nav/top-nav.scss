@@ -1,0 +1,23 @@
+.navigator {
+  background: var(--white);
+  border-bottom: solid 1px var(--gray-400);
+
+  .logo {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .links {
+    a {
+      color: var(--indigo-velvet);
+
+      &.active {
+        background-color: var(--midnight-violet);
+        color: var(--frozen-water);
+      }
+    }
+  }
+}
+

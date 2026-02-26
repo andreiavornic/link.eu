@@ -1,0 +1,27 @@
+{
+  "linkId": "link-5",
+  "totalClicks": 876,
+  "trend": [
+    { "date": "2026-02-18", "clicks": 110 },
+    { "date": "2026-02-19", "clicks": 128 },
+    { "date": "2026-02-20", "clicks": 135 },
+    { "date": "2026-02-21", "clicks": 118 },
+    { "date": "2026-02-22", "clicks": 125 },
+    { "date": "2026-02-23", "clicks": 130 },
+    { "date": "2026-02-24", "clicks": 130 }
+  ],
+  "devices": [
+    { "type": "Mobile", "value": 45 },
+    { "type": "Desktop", "value": 55 }
+  ],
+  "sources": [
+    { "source": "Direct", "value": 290 },
+    { "source": "Social", "value": 240 },
+    { "source": "Email", "value": 200 },
+    { "source": "Referral", "value": 146 }
+  ],
+  "visitors": {
+    "unique": 650,
+    "returning": 226
+  }
+}

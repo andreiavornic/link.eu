@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-12 col-lg-4">
+    <div class="card p-4  mb-4">
+      <div class="text-uppercase ext-body">Total Clicks</div>
+      <div class="text-body-secondary fs-3 fw-bold">{{ data().totalClicks | number }}</div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4">
+    <div class="card p-4 mb-4">
+      <div class="text-uppercase ext-body">Unique Visitors</div>
+      <div class="text-body-secondary fs-3 fw-bold">{{ data().visitors.unique | number }}</div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4">
+    <div class="card p-4  mb-4">
+      <div class="text-uppercase ext-body">Returning</div>
+      <div class="text-body-secondary fs-3 fw-bold">{{ data().visitors.returning | number }}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="card mb-4 p-4 ">
+  <h3 class="fs-5">Traffic Sources</h3>
+  <div class="base-chart-container">
+    <canvas baseChart
+            [data]="barChartData()"
+            [options]="barChartOptions"
+            [type]="barChartType">
+    </canvas>
+  </div>
+</div>

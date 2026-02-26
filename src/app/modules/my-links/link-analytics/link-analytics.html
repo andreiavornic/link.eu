@@ -1,0 +1,34 @@
+<div class="container pt-4 pt-lg-5">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="fs-4 m-0">🔍 Analytics</h1>
+    <a routerLink="/my-links" mat-button>← Back to My Links</a>
+  </div>
+
+  <div class="row mt-4">
+    @if (facade.isLoading()) {
+      <div class="col-12">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+    } @else if (facade.error()) {
+      <app-error-msg [error]="facade.error()!" (action)="facade.refresh(id())"></app-error-msg>
+    } @else if (facade.data(); as data) {
+      <app-kpi-cards [data]="data"/>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <app-trend-chart [trend]="data.trend"/>
+          </div>
+          <div class="col-12 col-lg-4">
+            <app-device-chart [devices]="data.devices"/>
+          </div>
+          <div class=" col-12 col-lg-4">
+            <app-sources-chart [sources]="data.sources"/>
+          </div>
+          <div class=" col-12 col-lg-4">
+            <app-visitors-chart [visitors]="data.visitors"/>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

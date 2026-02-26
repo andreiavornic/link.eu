@@ -1,0 +1,35 @@
+[
+  {
+    "id": "link-1",
+    "originalUrl": "https://www.example.com/very-long-url/article/2024/understanding-angular-signals",
+    "shortUrl": "https://exlnk.co/a1b2c3",
+    "createdAt": "2026-02-20T10:30:00Z",
+    "email": "john@example.com"
+  },
+  {
+    "id": "link-2",
+    "originalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "shortUrl": "https://exlnk.co/d4e5f6",
+    "createdAt": "2026-02-18T14:15:00Z"
+  },
+  {
+    "id": "link-3",
+    "originalUrl": "https://blog.angular.dev/angular-v19-is-now-available-xyz123456",
+    "shortUrl": "https://exlnk.co/g7h8i9",
+    "createdAt": "2026-02-15T09:00:00Z",
+    "email": "jane@example.com"
+  },
+  {
+    "id": "link-4",
+    "originalUrl": "https://github.com/angular/angular/issues/12345",
+    "shortUrl": "https://exlnk.co/j0k1l2",
+    "createdAt": "2026-02-12T16:45:00Z"
+  },
+  {
+    "id": "link-5",
+    "originalUrl": "https://medium.com/@user/building-scalable-apps-with-nx-monorepo",
+    "shortUrl": "https://exlnk.co/m3n4o5",
+    "createdAt": "2026-02-10T11:20:00Z",
+    "email": "dev@company.io"
+  }
+]
